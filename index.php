@@ -1,3 +1,8 @@
+<?php
+$error = $_GET["error"] ?? 0;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +35,7 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="pages/register.php">Register</a></li>
-                    <li class="">
+                    <li class="<?= $error == 1 ? 'open' : '' ?>">
                         <a id="entrar" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In</a>
                         <ul class="dropdown-menu" aria-labelledby="entrar">
                             <div class="col-md-12">
@@ -38,11 +43,11 @@
                                     <br />
                                 <form method="post" action="pages/login.php" id="formLogin">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="campo_usuario" name="user" placeholder="Usuário" />
+                                        <input type="text" class="form-control" id="user-field" name="user" placeholder="Usuário" />
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" class="form-control red" id="campo_senha" name="password" placeholder="Senha" />
+                                        <input type="password" class="form-control red" id="password-field" name="password" placeholder="Senha" />
                                     </div>
 
                                     <button type="buttom" class="btn btn-primary" id="btn_login">Sign In</button>
@@ -50,7 +55,12 @@
                                     <br /><br />
 
                                 </form>
-                                </form>
+                                <?php
+                                if ($error == 1) {
+                                    echo "<strong style='color:#FF0000;'>User or Password Invalid</strong>";
+                                }
+                                ?>
+                            </div>
                         </ul>
                     </li>
                 </ul>
@@ -79,6 +89,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- EXTERNAL SCRIPTS -->
     <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

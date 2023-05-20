@@ -11,15 +11,16 @@ require_once "../config/db_class.php";
 
 $userId = $_SESSION["user-id"];
 
-$unfollowIdUser = $_POST["unfollowIdUser"];
+$tweetId = $_POST["tweetIdDelete"];
+echo "DELETED";
 
-if ($unfollowIdUser == '' && $userId == '') {
+if ($tweetId == '' && $userId == '') {
     die();
 }
 
 $objDb = new Database();
 $link = $objDb->connectMysql();
 
-$sql = "DELETE FROM users_followers WHERE id_user = $userId AND id_user_following = $unfollowIdUser";
+$sql = "DELETE FROM tweets WHERE id_user = $userId AND id_tweet = $tweetId";
 
 mysqli_query($link, $sql);

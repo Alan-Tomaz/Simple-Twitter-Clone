@@ -2,7 +2,8 @@
 session_start();
 
 if (!isset($_SESSION["user"]) && !isset($_SESSION["email"]))
-    header("Location: ../index.php")
+    header("Location: ../index.php");
+
 ?>
 
 <!DOCTYPE HTML>
@@ -51,10 +52,10 @@ if (!isset($_SESSION["user"]) && !isset($_SESSION["email"]))
                     <h4><?= $_SESSION["user"] ?></h4>
                     <hr>
                     <div class="col-md-6">
-                        TWEETS <br> 1
+                        TWEETS <br> <span id="tweets-qnty"></span>
                     </div>
                     <div class="col-md-6">
-                        FOLLOWERS <br> 1
+                        FOLLOWERS <br> <span id="followers-qnty"></span>
                     </div>
                 </div>
             </div>

@@ -56,5 +56,7 @@ if ($userExist || $emailExist) {
 
     if (!mysqli_query($link, $sql)) {
         echo "Registry error";
+    } else {
+        header("Location: ../index.php");
     }
 }

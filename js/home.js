@@ -1,5 +1,8 @@
 $(document).ready(() => {
 
+    // Get the information of followers and tweets
+    loadPanel();
+
     // LOAD YOUR TWEETS AND ADD THEN
     function updateTweet() {
         $.ajax({
@@ -7,6 +10,25 @@ $(document).ready(() => {
             method: 'POST',
             success: function (data) {
                 $('#tweets').html(data);
+
+                //DELETE TWEETS
+                $(".btn-delete-tweet").click(function () {
+                    var tweetId = $(this).data('id-tweet');
+                    $.ajax({
+                        url: "delete_tweets.php",
+                        method: 'POST',
+                        data: {
+                            tweetIdDelete: tweetId
+                        },
+                        success: (data) => {
+                            console.log(data);
+                            $("#btn-delete-tweet-" + tweetId).hide();
+                            updateTweet();
+                            loadPanel();
+                        }
+
+                    });
+                });
             }
         });
     }
@@ -23,6 +45,7 @@ $(document).ready(() => {
                 success: (data) => {
                     $("#tweet-text").val('');
                     updateTweet();
+                    loadPanel();
                 }
 
             });

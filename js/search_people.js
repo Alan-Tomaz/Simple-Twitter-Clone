@@ -1,5 +1,8 @@
 $(document).ready(() => {
 
+    // Get the information of followers and tweets
+    loadPanel();
+
     // Search People
     $("#btn-search").click(() => {
         if ($("#name-person").val().length > 0) {
@@ -23,7 +26,9 @@ $(document).ready(() => {
                             data: {
                                 followIdUser: userId
                             },
-                            success: (data) => {}
+                            success: (data) => {
+                                loadPanel();
+                            }
                         })
                     })
 
@@ -39,7 +44,9 @@ $(document).ready(() => {
                             data: {
                                 unfollowIdUser: userId
                             },
-                            success: (data) => {}
+                            success: (data) => {
+                                loadPanel();
+                            }
                         })
                     })
                 }

@@ -38,6 +38,7 @@ if (!isset($_SESSION["user"]) && !isset($_SESSION["email"]))
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="logout.php">Logout</a></li>
+                    <li><a href="home.php">Home</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -62,22 +63,21 @@ if (!isset($_SESSION["user"]) && !isset($_SESSION["email"]))
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <form id="form-tweet" class="input-group">
-                        <input type="text" name="tweet-text" id="tweet-text" class="form-control" placeholder="What is happening now?" maxlength="140">
+                    <form id="form-search-people" class="input-group">
+                        <input type="text" name="name-person" id="name-person" class="form-control" placeholder="Search People" maxlength="140">
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" id="btn-tweet">Tweet</button>
+                            <button class="btn btn-default" type="button" id="btn-search">Search</button>
                         </span>
                     </form>
                 </div>
             </div>
-            <div id="tweets" class="list-group">
+            <div id="people" class="list-group">
 
             </div>
         </div>
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h4><a href="search_people.php">Search People</a></h4>
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@ if (!isset($_SESSION["user"]) && !isset($_SESSION["email"]))
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- EXTERNAL SCRIPTS -->
     <script src="../js/main.js"></script>
-    <script src="../js/home.js"></script>
+    <script src="../js/search_people.js"></script>
 </body>
 
 </html>

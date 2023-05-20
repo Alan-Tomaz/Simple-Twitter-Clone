@@ -8,6 +8,7 @@ if (!isset($_SESSION["user"])) {
 }
 
 require_once "../config/db_class.php";
+
 $userId = $_SESSION["user-id"];
 
 $objDb = new Database();

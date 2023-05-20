@@ -43,11 +43,11 @@ $error = $_GET["error"] ?? 0;
                                     <br />
                                 <form method="post" action="pages/login.php" id="formLogin">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="user-field" name="user" placeholder="Usuário" />
+                                        <input type="text" class="form-control" id="user-field" name="user" placeholder="User" />
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" class="form-control red" id="password-field" name="password" placeholder="Senha" />
+                                        <input type="password" class="form-control red" id="password-field" name="password" placeholder="Password" />
                                     </div>
 
                                     <button type="buttom" class="btn btn-primary" id="btn_login">Sign In</button>

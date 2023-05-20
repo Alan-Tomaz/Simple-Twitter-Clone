@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+
+$errorUser = isset($_GET["error-user"]) ? $_GET["error-user"] : 0;
+$errorEmail = isset($_GET["error-email"]) ? $_GET["error-email"] : 0;
+?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 
@@ -5,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twitter clone</title>
+    <title>Twitter Clone</title>
     <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
     <!-- BOOTSTRAP STYLE CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -48,10 +56,26 @@
             <form method="post" action="register-user.php" id="formCadastrarse">
                 <div class="form-group">
                     <input type="text" class="form-control" id="usuario" name="user" placeholder="User" required="requiored">
+                    <?php
+                    if ($errorUser) {
+                        echo '<div class="alert alert-danger" role="alert" style="margin-top:1rem;">
+            <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <strong>' . "User Already Exists" . '</strong>
+        </div>';
+                    }
+                    ?>
                 </div>
 
                 <div class="form-group">
                     <input type="email" class="form-control" id="email" name="email" placeholder="E-mail" required="requiored">
+                    <?php
+                    if ($errorEmail) {
+                        echo '<div class="alert alert-danger" role="alert" style="margin-top:1rem;">
+            <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <strong>' . "Email Already Exists" . '</strong>
+        </div>';
+                    }
+                    ?>
                 </div>
 
                 <div class="form-group">

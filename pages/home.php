@@ -12,7 +12,7 @@ if (!isset($_SESSION["user"]) && !isset($_SESSION["email"]))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twitter clone</title>
+    <title>Twitter Clone</title>
     <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
     <!-- BOOTSTRAP STYLE CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -45,24 +45,42 @@ if (!isset($_SESSION["user"]) && !isset($_SESSION["email"]))
 
 
     <div class="container">
-
-        <br /><br />
-
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            User authenticated
-            <br>
-            <?= $_SESSION["user"] ?>
-            <br>
-            <?= $_SESSION["email"] ?>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4><?= $_SESSION["user"] ?></h4>
+                    <hr>
+                    <div class="col-md-6">
+                        TWEETS <br> 1
+                    </div>
+                    <div class="col-md-6">
+                        FOLLOWERS <br> 1
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form id="form-tweet" class="input-group">
+                        <input type="text" name="tweet-text" id="tweet-text" class="form-control" placeholder="What is happening now?" maxlength="140">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="btn-tweet">Tweet</button>
+                        </span>
+                    </form>
+                </div>
+            </div>
+            <div id="tweets" class="list-group">
 
-        <div class="clearfix"></div>
-        <br />
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4><a href="#">Search People</a></h4>
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -75,6 +93,7 @@ if (!isset($_SESSION["user"]) && !isset($_SESSION["email"]))
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- EXTERNAL SCRIPTS -->
     <script src="../js/main.js"></script>
+    <script src="../js/home.js"></script>
 </body>
 
 </html>

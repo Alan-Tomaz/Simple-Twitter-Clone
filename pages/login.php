@@ -20,6 +20,7 @@ if (!$resultId) {
     $dataUser = mysqli_fetch_array($resultId);
 
     if (isset($dataUser["user"])) {
+        $_SESSION["user-id"] = $dataUser["id"];
         $_SESSION["user"] = $dataUser["user"];
         $_SESSION["email"] = $dataUser["email"];
 
